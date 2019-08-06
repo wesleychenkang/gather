@@ -1,0 +1,45 @@
+#application.yml
+server:
+  port: 8088
+
+spring:
+
+    datasource:
+        name: test
+        url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC
+        username: root
+        password: 123456
+        driver-class-name: com.mysql.jdbc.Driver
+        filters: stat
+        maxActive: 20
+        initialSize: 1
+        maxWait: 60000
+        minIdle: 1
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: select 'x'
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        poolPreparedStatements: true
+        maxOpenPreparedStatements: 20
+
+    jackson:
+      date-format: yyyy-MM-dd HH:mm:ss
+      time-zone: GMT+8
+
+mybatis:
+   mapperLocations: classpath:mapperxml/*Mapper.xml
+   typeAliasesPackage: com.zhongdao.gather.bean
+
+#logging:
+#  level:
+#     com.zhongdao.gather.mapper : debug
+
+
+#    mapper:
+#       mappers :
+#       not-empty : false
+#       identity : MYSQL
+#
+
